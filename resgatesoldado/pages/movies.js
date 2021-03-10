@@ -1,11 +1,18 @@
+import useSWR from 'swr'
 export default function Movies(){
-    const data = fetcher(`http://www.omdbapi.com/?apikey=fd6b0637&s=bagdad`)
+    
+    const {data, error} = useSWR(`http://www.omdbapi.com/?apikey=fd6b0637&s=resgate`,getServerSideProps)
+    if (error) return <div>Falha na requisição...</div>
+
+    if (!data) return <div>Carregando...</div>
     return (
-        <h1>Resgate do Soldado</h1>
+        <div>
+             { data.Search.map( (m) => <div>{m.Title} --- <br /><img src={m.Poster} alt="POSTER FALTANDO"></img> --- {m.Year}</div>  ) }
+        </div>
     )
 }
 
-async function fetcher(url) {
+async function getServerSideProps(url) {
 
     const res = await fetch(url)
 
