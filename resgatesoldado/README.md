@@ -7,6 +7,9 @@ ALUNO: ADALBERTO MAIA DA SILVA
 First, run the development server:
 
 ```bash
+In folder ../resgatedosoldado/resgatesoldado run:
+
+npm install
 npm run dev
 # or
 yarn dev
