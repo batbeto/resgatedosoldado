@@ -24,17 +24,7 @@ export default function Movies(){
                         <button onClick={() => setPage(page-1)}>Proxima Anterior</button> )
                     }
                 </div>
-                {data && 
-                    data.Search ? <div>{
-                        data.Search.map( 
-                            (m) => 
-                                <div>
-                                    {m.Title} --- <br />
-                                    <img src={m.Poster} alt="POSTER FALTANDO"></img>
-                                    --- {m.Year}
-                                 </div>  
-                                 )}</div> 
-                                : <p>NÃO FORAM ENCONTRADOS FILMES</p>}
+                {data && data.Search ? <div>{data.Search.map((m) => <div>{m.Title} --- <br /><img src={m.Poster} alt="POSTER FALTANDO"></img> --- {m.Year} </div> )}</div>  : <p>NÃO FORAM ENCONTRADOS FILMES</p>}
                       
             </div>
             
