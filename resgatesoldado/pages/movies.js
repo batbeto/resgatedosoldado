@@ -9,14 +9,17 @@ export default function Movies(){
         setFilmes(e.target.value)
     }
 
-
+    console.log(data)
     return (
         <div>
-            <input type="search" onChange={handleChange}/>
-            
-            {data && data.Search ? <div>{data.Search.map( (m) => <div>{m.Title} --- <br /><img src={m.Poster} alt="POSTER FALTANDO"></img> --- {m.Year}</div>  ) }</div> : null}
-                                
-            
+            <section>
+                <input type="search" onChange={handleChange}/>
+                
+                {data && data.Search ? <div>{data.Search.map( (m) => <div>{m.Title} --- <br /><img src={m.Poster} alt="POSTER FALTANDO"></img> --- {m.Year}</div>  ) }</div> : <p>NÃO FORAM ENCONTRADOS FILMES</p>}
+                <nav>
+                    <ul id="paginator"></ul>
+                </nav>                
+            </section>
         </div>
     )
 }
@@ -30,5 +33,3 @@ async function Fetcher(url) {
     return json
 
 }
-
-
