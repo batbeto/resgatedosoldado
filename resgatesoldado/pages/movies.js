@@ -9,15 +9,20 @@ export default function Movies(){
     const handleChange = e => {
         setFilmes(e.target.value)
     }
-    console.log(page)
+
     console.log(data)
+    console.log(page)
     return (
         <div>
             <div>
                 <input type="search" onChange={handleChange}/>
                 <div>
                     <button onClick={() => setPage(page+1)}>Proxima Pagina</button>
-                    <button onClick={() => setPage(page-1)}>Proxima Anterior</button>
+                </div>
+                <div>
+                    {page > 1 && (
+                        <button onClick={() => setPage(page-1)}>Proxima Anterior</button> )
+                    }
                 </div>
                 {data && 
                     data.Search ? <div>{
